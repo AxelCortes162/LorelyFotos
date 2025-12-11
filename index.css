@@ -1,0 +1,256 @@
+/* --- VARIABLES Y RESET --- */
+:root {
+    --bg-color: #0a0a0a;
+    --text-primary: #ffffff;
+    --accent-color: #44882d; /* Naranja rojizo intenso (Orange Red) */
+    --overlay-dark: rgba(0, 0, 0, 0.6);
+    --font-title: 'Oswald', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+}
+
+/* --- HEADER --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+}
+
+/* .logo {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid var(--text-primary);
+    padding: 5px 10px;
+} */
+
+.img_logo{
+    width: 150px;
+    height: auto;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-primary);
+    margin-left: 25px;
+    font-family: var(--font-title);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+.cta-contact {
+    background-color: var(--accent-color);
+    padding: 8px 15px;
+    color: #000 !important; /* Texto negro para contraste */
+    font-weight: bold;
+    border-radius: 2px;
+}
+
+.menu-toggle { display: none; } /* Oculto en escritorio */
+
+/* --- HERO SECTION --- */
+.hero {
+    height: 60vh; /* Altura controlada */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* Imagen de fondo genérica de deportes o textura oscura */
+    background: radial-gradient(circle, #2a2a2a 0%, #000000 100%);
+}
+
+.hero h1 {
+    font-family: var(--font-title);
+    font-size: 4.5rem;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #cccccc;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.scroll-indicator {
+    margin-top: 40px;
+    opacity: 0.7;
+    font-size: 0.8rem;
+}
+
+/* --- CATEGORIES CONTAINER (La parte importante) --- */
+.categories-container {
+    display: flex;
+    height: 100vh; /* Ocupa toda la pantalla verticalmente */
+    width: 100%;
+}
+
+.category-card {
+    flex: 1; /* Todos inician con el mismo ancho */
+    position: relative;
+    transition: flex 0.5s ease; /* Animación suave al estirarse */
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    overflow: hidden;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Imágenes de fondo para cada deporte */
+/* Nota: Reemplaza estas URL con tus fotos reales para mejor calidad */
+.futbol {
+    background-image: url('https://images.unsplash.com/photo-1518605348406-fb5986872591?q=80&w=800&auto=format&fit=crop');
+}
+
+.basquet {
+    background-image: url('https://images.unsplash.com/photo-1519861531473-92002639313a?q=80&w=800&auto=format&fit=crop');
+}
+
+.box {
+    background-image: url('https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?q=80&w=800&auto=format&fit=crop');
+    border-right: none;
+}
+
+/* EFECTO HOVER: La tarjeta seleccionada crece */
+.category-card:hover {
+    flex: 2; /* Se vuelve el doble de ancha que las otras */
+}
+
+/* Capa oscura sobre la imagen */
+.overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--overlay-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.category-card:hover .overlay {
+    background: rgba(0,0,0,0.3); /* Se aclara al pasar el mouse */
+}
+
+.overlay h2 {
+    font-family: var(--font-title);
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 2px 2px 10px #000;
+    margin-bottom: 10px;
+    transform: translateY(20px);
+    transition: transform 0.3s;
+}
+
+.overlay p {
+    font-size: 1rem;
+    opacity: 0; /* Oculto por defecto */
+    transform: translateY(20px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.btn-view {
+    margin-top: 20px;
+    padding: 10px 30px;
+    border: 2px solid var(--accent-color);
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    opacity: 0; /* Oculto por defecto */
+    transition: all 0.3s;
+}
+
+.btn-view:hover {
+    background-color: var(--accent-color);
+    color: #000;
+}
+
+/* Animación de contenido al hacer Hover */
+.category-card:hover h2 {
+    transform: translateY(0);
+}
+
+.category-card:hover p,
+.category-card:hover .btn-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #050505;
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid #222;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--accent-color);
+}
+
+footer p {
+    margin-top: 20px;
+    color: #666;
+    font-size: 0.8rem;
+}
+
+/* --- RESPONSIVE (MÓVIL) --- */
+@media (max-width: 768px) {
+    header { padding: 15px 20px; }
+    .logo { font-size: 1.2rem; }
+    nav { display: none; } /* En un caso real, aquí iría un script JS para el menú */
+    .menu-toggle { display: block; font-size: 1.5rem; cursor: pointer; }
+
+    .hero h1 { font-size: 2.5rem; }
+
+    /* Cambiar disposición a vertical en celular */
+    .categories-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .category-card {
+        height: 350px;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #333;
+    }
+
+    .category-card:hover { flex: 1; } /* Desactivar efecto elástico en móvil */
+
+    .overlay p, .btn-view { opacity: 1; transform: translateY(0); } /* Mostrar siempre botones en móvil */
+}
