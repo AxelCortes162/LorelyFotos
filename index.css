@@ -2,7 +2,8 @@
 :root {
     --bg-color: #0a0a0a;
     --text-primary: #ffffff;
-    --accent-color: #44882d; /* Naranja rojizo intenso (Orange Red) */
+    --accent-color: #44882d;
+    --hover-color: #336821;
     --overlay-dark: rgba(0, 0, 0, 0.6);
     --font-title: 'Oswald', sans-serif;
     --font-body: 'Montserrat', sans-serif;
@@ -60,6 +61,10 @@ nav a:hover {
     color: #000 !important; /* Texto negro para contraste */
     font-weight: bold;
     border-radius: 2px;
+}
+
+.cta-contact:hover{
+    background-color: var(--hover-color);
 }
 
 .menu-toggle {
@@ -135,8 +140,6 @@ nav a:hover {
     border-right: 1px solid rgba(255,255,255,0.1);
 }
 
-/* Imágenes de fondo para cada deporte */
-/* Nota: Reemplaza estas URL con tus fotos reales para mejor calidad */
 .futbol {
     background-image: url('Imagenes/futbol.jpg');
 }
@@ -273,7 +276,7 @@ footer p {
         pointer-events: none;
 
         transition: opacity 0.4s ease, transform 0.4s ease;
-        z-index: 5;
+        z-index: 4;
     }
 
     nav.show {
@@ -289,6 +292,7 @@ footer p {
         letter-spacing: 1px;
         color: #fff;
         transition: opacity 0.2s ease;
+        z-index: 6;
     }
 
     nav a:hover {
@@ -347,7 +351,7 @@ footer p {
         width: 100%;
         height: calc(100vh - 70px);
         background: rgba(0,0,0,0.5);
-        z-index: 3;
+        z-index: 5;
 
         opacity: 0;
         visibility: hidden;
