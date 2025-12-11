@@ -173,7 +173,7 @@
         flex-direction: column;
         margin-left: 2.5%;
         gap: 20px;
-        margin-top: calc(40vh - 500px);
+        margin-top: calc(40vh - 550px);
     }
 
     .contact-form-box,
