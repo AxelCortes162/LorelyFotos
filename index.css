@@ -29,23 +29,14 @@ header {
     padding: 20px 40px;
     position: fixed;
     width: 100%;
-    z-index: 1000;
+    z-index: 10;
     background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
 }
-
-/* .logo {
-    font-family: var(--font-title);
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border: 2px solid var(--text-primary);
-    padding: 5px 10px;
-} */
 
 .img_logo{
     width: 150px;
     height: auto;
+    z-index: 10;
 }
 
 nav a {
@@ -71,7 +62,15 @@ nav a:hover {
     border-radius: 2px;
 }
 
-.menu-toggle { display: none; } /* Oculto en escritorio */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    user-select: none;
+    color: white;
+    z-index: 5;
+    transition: transform 0.3s ease;
+}
 
 /* --- HERO SECTION --- */
 .hero {
@@ -245,9 +244,71 @@ footer p {
 /* --- RESPONSIVE (MÓVIL) --- */
 @media (max-width: 768px) {
     header { padding: 15px 20px; }
-    .logo { font-size: 1.2rem; }
-    nav { display: none; } /* En un caso real, aquí iría un script JS para el menú */
-    .menu-toggle { display: block; font-size: 1.5rem; cursor: pointer; }
+    .logo { 
+        font-size: 1.2rem; 
+        z-index: 10;
+    }
+    nav {
+        position: fixed;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh);
+        background: rgba(0, 0, 0, 0.95);
+
+        /* FLEX siempre activo */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+        /* Estado oculto */
+        opacity: 0;
+        transform: translateY(-30px);
+        visibility: hidden;
+        pointer-events: none;
+
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        z-index: 5;
+    }
+
+    nav.show {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    nav a {
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #fff;
+        transition: opacity 0.2s ease;
+    }
+
+    nav a:hover {
+        opacity: 0.6;
+    }
+
+    /* Botón del menú */
+    .menu-toggle {
+        display: block;
+        font-size: 2rem;
+        cursor: pointer;
+        z-index: 3000;
+        color: white;
+        transition: transform 0.3s ease;
+    }
+
+
+    .menu-toggle:active {
+        transform: scale(0.9);
+    }
 
     .hero { height: 50vh; padding: 0 10px; }
     .hero h1 { font-size: 2.5rem; }
@@ -279,3 +340,24 @@ footer p {
     .hero h1 { font-size: 2rem; }
     .overlay h2 { font-size: 2rem; }
 }
+.mobile-overlay {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(0,0,0,0.5);
+        z-index: 3;
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+
+        transition: opacity 0.3s ease;
+    }
+
+    .mobile-overlay.show {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
