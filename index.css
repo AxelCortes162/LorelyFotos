@@ -89,6 +89,8 @@ nav a:hover {
     color: white;
     z-index: 5;
     transition: transform 0.3s ease;
+    background: none;
+    border: none;
     -webkit-tap-highlight-color: transparent;
 }
 .menu-toggle:focus,
@@ -158,14 +160,22 @@ nav a:hover {
     cursor: pointer;
     overflow: hidden;
     border-right: 1px solid rgba(255,255,255,0.1);
+    -webkit-tap-highlight-color: transparent;
+}
+.category-card:focus,
+.category-card:active {
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 .futbol {
     background-image: url('Imagenes/futbol.jpg');
+    background-position: center left 10%;
 }
 
 .basquet {
     background-image: url('Imagenes/basquet.jpg');
+    background-position: center top 10%;
 }
 
 .box {
@@ -348,6 +358,10 @@ footer p {
         width: 100%;
         border-right: none;
         border-bottom: 1px solid #333;
+    }
+
+    .futbol{
+        background-position: center top 10%;
     }
 
     .basquet {
