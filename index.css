@@ -265,7 +265,17 @@ footer p {
         border-bottom: 1px solid #333;
     }
 
+    .basquet {
+        background-position: center top 10%;
+    }
+
     .category-card:hover { flex: 1; } /* Desactivar efecto elástico en móvil */
 
     .overlay p, .btn-view { opacity: 1; transform: translateY(0); } /* Mostrar siempre botones en móvil */
+}
+
+@media (max-width: 480px) {
+    .hero { height: 60vh; }
+    .hero h1 { font-size: 2rem; }
+    .overlay h2 { font-size: 2rem; }
 }
