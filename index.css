@@ -15,6 +15,20 @@
     padding: 0;
 }
 
+/* Quitar highlight azul en móvil */
+a, button, input, textarea {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Quitar outline azul en links y botones */
+a:focus, a:active,
+button:focus, button:active,
+input:focus, input:active,
+textarea:focus, textarea:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 body {
     background-color: var(--bg-color);
     color: var(--text-primary);
@@ -75,6 +89,12 @@ nav a:hover {
     color: white;
     z-index: 5;
     transition: transform 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+.menu-toggle:focus,
+.menu-toggle:active {
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 /* --- HERO SECTION --- */
