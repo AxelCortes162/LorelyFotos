@@ -75,20 +75,34 @@ nav a:hover {
 
 /* --- HERO SECTION --- */
 .hero {
-    height: 60vh; /* Altura controlada */
+    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* Imagen de fondo genérica de deportes o textura oscura */
-    background: radial-gradient(circle, #2a2a2a 0%, #000000 100%);
+
+    background-image: url('Imagenes/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: relative;
 }
+.hero-content {
+    background: rgba(0, 0, 0, 0.45);
+    padding: 20px 40px;
+    border-radius: 6px;
+    z-index: 2;
+    position: relative;
+}
+
 
 .hero h1 {
     font-family: var(--font-title);
     font-size: 4.5rem;
     line-height: 1;
     margin-bottom: 10px;
+
 }
 
 .hero p {
@@ -125,15 +139,15 @@ nav a:hover {
 /* Imágenes de fondo para cada deporte */
 /* Nota: Reemplaza estas URL con tus fotos reales para mejor calidad */
 .futbol {
-    background-image: url('https://images.unsplash.com/photo-1518605348406-fb5986872591?q=80&w=800&auto=format&fit=crop');
+    background-image: url('Imagenes/futbol.jpg');
 }
 
 .basquet {
-    background-image: url('https://images.unsplash.com/photo-1519861531473-92002639313a?q=80&w=800&auto=format&fit=crop');
+    background-image: url('Imagenes/basquet.jpg');
 }
 
 .box {
-    background-image: url('https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?q=80&w=800&auto=format&fit=crop');
+    background-image: url('Imagenes/box.jpg');
     border-right: none;
 }
 
