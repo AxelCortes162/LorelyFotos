@@ -375,7 +375,7 @@ footer p {
 
 @media (max-width: 480px) {
     .hero { 
-        height: 100vh; 
+        height: 95vh; 
         background-image: url("Imagenes/background.jpg");
     }
     .hero h1 { font-size: 2rem; }
