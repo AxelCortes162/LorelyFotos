@@ -146,6 +146,7 @@ nav a:hover {
 
 .arrow{
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* --- CATEGORIES CONTAINER (La parte importante) --- */
