@@ -12,6 +12,11 @@
         menuToggle.textContent = isOpen ? '✕' : '☰';
     });
 
+    document.getElementById("scroll-deportes").addEventListener("click", () =>{
+        const section = document.getElementById("categories");
+        section.scrollIntoView({behavior: "smooth"});
+    });
+
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             nav.classList.remove('show');
