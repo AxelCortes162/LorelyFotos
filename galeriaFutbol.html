@@ -1,0 +1,55 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería de Fútbol</title>
+  <link rel="stylesheet" href="CSS/futbol.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Galería de Fútbol</h1>
+  </header>
+
+  <section class="albums">
+    <div class="album" data-album="1">
+      <img src="img/album1.jpg" alt="Álbum 1">
+      <p>Álbum 1</p>
+    </div>
+    <div class="album" data-album="2">
+      <img src="img/album2.jpg" alt="Álbum 2">
+      <p>Álbum 2</p>
+    </div>
+    <div class="album" data-album="3">
+      <img src="img/album3.jpg" alt="Álbum 3">
+      <p>Álbum 3</p>
+    </div>
+    <div class="album" data-album="4">
+      <img src="img/album4.jpg" alt="Álbum 4">
+      <p>Álbum 4</p>
+    </div>
+    <div class="album" data-album="5">
+      <img src="img/album5.jpg" alt="Álbum 5">
+      <p>Álbum 5</p>
+    </div>
+    <div class="album" data-album="6">
+      <img src="img/album6.jpg" alt="Álbum 6">
+      <p>Álbum 6</p>
+    </div>
+  </section>
+
+  <!-- Modal / Carrete -->
+  <div id="modal" class="modal hidden">
+    <span id="closeModal" class="close">×</span>
+
+    <div class="carousel-wrapper">
+      <button class="nav prev">‹</button>
+      <div id="carousel" class="carousel"></div>
+      <button class="nav next">›</button>
+    </div>
+  </div>
+
+  <script src="JS/futbol.js"></script>
+</body>
+</html>
