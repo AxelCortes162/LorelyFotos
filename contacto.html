@@ -10,10 +10,56 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init({
+              publicKey: "DmK9GUmZIXUpqDple",
+            });
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+
+            const form = document.getElementById('contact-form');
+            const statusBox = document.getElementById('form-status');
+
+            function showMessage(text, type) {
+                statusBox.textContent = text;
+                statusBox.className = "status-message " + type + " show";
+
+                // Ocultar después de 3 segundos
+                setTimeout(() => {
+                    statusBox.classList.remove("show");
+                }, 3000);
+            }
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                emailjs.sendForm('service_qaqsqyl', 'template_wqelvxn', form)
+                    .then(() => {
+
+                        showMessage("¡Mensaje enviado correctamente!", "status-success");
+
+                        // Vaciar formulario
+                        form.reset();
+
+                    }, (error) => {
+
+                        showMessage("Error al enviar el mensaje. Inténtalo nuevamente.", "status-error");
+
+                        console.error(error);
+                    });
+            });
+        }
+    </script>
 </head>
 
 <body>
-
+    
     <!-- HEADER -->
     <header>
         <div class="logo">
@@ -30,6 +76,8 @@
         </nav>
         <div class="menu-toggle">☰</div>
     </header>
+
+    <div id="form-status" class="status-message"></div>
 
     <!-- OVERLAY MOVIL -->
     <div class="mobile-overlay"></div>
@@ -48,13 +96,13 @@
             <div class="contact-form-box">
                 <h2>Contacto</h2>
 
-                <form class="contact-form" action="https://formsubmit.co/loryfotos25@gmail.com" method="POST">
+                <form class="contact-form" id="contact-form">
                     <input type="text" name="name" placeholder="Nombre completo" required>
                     <input type="email" name="email" placeholder="Correo electrónico" required>
                     <input type="tel" name="phone" placeholder="Telefono" required>
                     <textarea name="message" placeholder="Escribe tu mensaje..."></textarea>
 
-                    <button type="submit">Enviar Mensaje</button>
+                    <button type="submit" value="Send">Enviar Mensaje</button>
                 </form>
             </div>
 
